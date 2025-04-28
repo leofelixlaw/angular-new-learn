@@ -1,14 +1,14 @@
-import { FlatCompat } from '@eslint/eslintrc';
-import pluginPrettier from 'eslint-plugin-prettier';
-import angularEslintPlugin from '@angular-eslint/eslint-plugin';
-import angularEslintTemplatePlugin from '@angular-eslint/eslint-plugin-template';
-import typescriptPlugin from '@typescript-eslint/eslint-plugin';
+const { FlatCompat } = require('@eslint/eslintrc');
+const pluginPrettier = require('eslint-plugin-prettier');
+const angularEslintPlugin = require('@angular-eslint/eslint-plugin');
+const angularEslintTemplatePlugin = require('@angular-eslint/eslint-plugin-template');
+const typescriptPlugin = require('@typescript-eslint/eslint-plugin');
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-export default [
+module.exports = [
   ...compat.config({
     extends: [
       'plugin:@angular-eslint/recommended',
@@ -22,25 +22,9 @@ export default [
       prettier: pluginPrettier,
     },
     rules: {
-      '@angular-eslint/component-selector': [
-        'error',
-        {
-          type: 'element',
-          prefix: 'app',
-          style: 'kebab-case',
-        },
-      ],
-      '@angular-eslint/directive-selector': [
-        'error',
-        {
-          type: 'attribute',
-          prefix: 'app',
-          style: 'camelCase',
-        },
-      ],
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/explicit-function-return-type': 'warn',
       'prettier/prettier': 'error',
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   }),
 ];

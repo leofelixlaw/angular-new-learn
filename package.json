@@ -8,8 +8,10 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:angular-new-learn": "node dist/angular-new-learn/server/server.mjs",
+    "lint": "eslint . --ext .ts,.html",
+    "format": "prettier --write \"src/**/*.{ts,html,scss,css,json}\"",
     "prepare": "husky install",
-    "lint": "eslint . --ext .ts,.html"
+    "postinstall": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -62,5 +64,6 @@
       "prettier --write",
       "git add"
     ]
-  }
+  },
+  "type": "module"
 }
