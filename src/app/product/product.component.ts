@@ -8,29 +8,25 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-product',
   imports: [CommonModule, FormsModule],
   templateUrl: './product.component.html',
-  styleUrl: './product.component.scss'
+  styleUrl: './product.component.scss',
 })
 export class ProductComponent {
   private readonly apiUrl = 'https://dummyjson.com/products/';
   productId: WritableSignal<string> = signal('2');
-  selectedProductId: string = '2';
+  selectedProductId = '2';
   test = '';
   productResource = httpResource<Product>(
     () => ({
       url: `${this.apiUrl}${this.productId()}`,
       method: 'GET',
     }),
-    { defaultValue: undefined }
+    { defaultValue: undefined },
   );
-  
-  ngOnInit() {
-  }
 
   updateProduct() {
     this.productId.set(this.selectedProductId);
   }
   get product() {
-    return this.productResource.value() ?? null;  // Return null if it's undefined
+    return this.productResource.value() ?? null; // Return null if it's undefined
   }
-  
 }

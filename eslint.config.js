@@ -26,7 +26,7 @@ module.exports = tseslint.config(
         "error",
         {
           type: "element",
-          prefix: "mil",
+          prefix: "app",
           style: "kebab-case",
         },
       ],
@@ -38,8 +38,6 @@ module.exports = tseslint.config(
       ...angular.configs.templateRecommended,
       ...angular.configs.templateAccessibility,
     ],
-    rules: {
-      "jsx-a11y/click-events-have-key-events": "off",
-    },
+    rules: {},
   },
 );
