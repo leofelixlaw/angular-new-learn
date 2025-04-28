@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Characters</h2>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Choose a Character</label>
+    <select
+      class="form-select"
+      id="character"
+      [(ngModel)]="selectedProductId"
+      (change)="updateProduct()">
+      <option value="1">Essence Mascara Lash Princess</option>
+      <option value="2">Eyeshadow Palette with Mirror</option>
+      <option value="3">Powder Canister</option>
+      <option value="4">Red Lipstick </option>
+      <option value="5">Red Nail Polish</option>
+    </select>
+  </div>
+  @if (product) {
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" loading="lazy" [src]="product.thumbnail" [alt]="product.title">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.title }} ({{product.title}})</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  }
+  @else {
+    <p>Loading...</p>
+  }
+</div>
