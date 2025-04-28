@@ -14,6 +14,7 @@ export class ProductComponent {
   private readonly apiUrl = 'https://dummyjson.com/products/';
   productId: WritableSignal<string> = signal('2');
   selectedProductId: string = '2';
+  test = '';
   productResource = httpResource<Product>(
     () => ({
       url: `${this.apiUrl}${this.productId()}`,
