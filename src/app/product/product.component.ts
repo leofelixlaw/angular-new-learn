@@ -22,7 +22,7 @@ export class ProductComponent {
     }),
     { defaultValue: undefined },
   );
-
+ngOnInit(){}
   updateProduct() {
     this.productId.set(this.selectedProductId);
   }
