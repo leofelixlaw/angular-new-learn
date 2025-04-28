@@ -1,14 +1,14 @@
-const { FlatCompat } = require('@eslint/eslintrc');
-const pluginPrettier = require('eslint-plugin-prettier');
-const angularEslintPlugin = require('@angular-eslint/eslint-plugin');
-const angularEslintTemplatePlugin = require('@angular-eslint/eslint-plugin-template');
-const typescriptPlugin = require('@typescript-eslint/eslint-plugin');
+import { FlatCompat } from '@eslint/eslintrc';
+import pluginPrettier from 'eslint-plugin-prettier';
+import angularEslintPlugin from '@angular-eslint/eslint-plugin';
+import angularEslintTemplatePlugin from '@angular-eslint/eslint-plugin-template';
+import typescriptPlugin from '@typescript-eslint/eslint-plugin';
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-module.exports = [
+export default [
   ...compat.config({
     extends: [
       'plugin:@angular-eslint/recommended',
