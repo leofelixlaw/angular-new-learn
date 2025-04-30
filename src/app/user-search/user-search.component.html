@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row justify-content-center text-center">
+    <div class="col-md-auto">
+      <div class="logo">
+        <img
+          src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow@2x.png"
+          width="80"
+          alt=""
+        />
+      </div>
+
+      <div class="card">
+        @if (users.isLoading()) {
+          <mat-progress-bar mode="query" />
+        }
+        <div class="card-body">
+          <div class="form-floating mb-3">
+            <input
+              (input)="query.set($any($event.target).value)"
+              type="text"
+              class="form-control"
+              id="search"
+              placeholder="Search User"
+            />
+            <label for="search">Search User</label>
+          </div>
+          <div class="d-flex justify-content-evenly m-4">
+            <button
+              (click)="users.reload()"
+              class="btn btn-warning"
+              type="button"
+            >
+              Reload
+            </button>
+            <button (click)="addUser()" class="btn btn-warning" type="button">
+              Add User
+            </button>
+            <button
+              (click)="users.set([])"
+              class="btn btn-warning"
+              type="button"
+            >
+              Clear
+            </button>
+          </div>
+          <div class="card">
+            <div class="card-body bg-body-tertiary">
+              @if (users.error()) {
+                <div class="error">Couldn't fetch data...</div>
+              }
+              <ul class="user-list">
+                @for (user of users.value(); track user.id) {
+                  <li>{{ user.name }}</li>
+                } @empty {
+                  <li class="text-center">Nothing to show</li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
